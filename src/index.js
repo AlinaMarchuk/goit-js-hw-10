@@ -32,12 +32,13 @@ function onInputElInput(e) {
           clearContent();
           refs.countriesList.insertAdjacentHTML('beforeend', listMarkup(data));
         } else if (data.length === 1) {
-          refs.countriesList.innerHTML = '';
-          refs.countryInfo.innerHTML = cardMarkup(data[0]);
+          clearContent();
+          refs.countryInfo.insertAdjacentHTML('beforeend', cardMarkup(data[0]));
         }
       })
       .catch(error => {
         Notify.failure(error.message);
+        clearContent();
       });
   }
 }
